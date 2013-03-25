@@ -19,9 +19,6 @@
 [submodule "vim.dot/bundle/sensible"]
 	path = vim.dot/bundle/sensible
 	url = git@github.com:tpope/vim-sensible.git
-[submodule "dircolors"]
-	path = dircolors
-	url = git@github.com:seebi/dircolors-solarized.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git@github.com:robbyrussell/oh-my-zsh.git
