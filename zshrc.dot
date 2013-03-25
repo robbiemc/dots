@@ -12,7 +12,7 @@ eval "$(dircolors $DOTS/solarized/dircolors/dircolors.ansi-dark)"
 
 # Load machine-specific zsh configurations
 if [[ -d $HOME/.custom(N) ]]; then
-  for conf in $HOME/.custom/*.zsh; do
+  for conf in $HOME/.custom/*.zsh(N); do
     source $conf
   done
 fi
