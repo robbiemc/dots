@@ -1,0 +1,43 @@
+" Enable Pathogen (to load the plugins)
+runtime bundle/pathogen/autoload/pathogen.vim
+call pathogen#infect()
+
+" Tab Navigation
+nmap Z :tabprev<cr>
+nmap X :tabnext<cr>
+
+" Custom commands
+command Trim %s/\s\+$//
+
+" Color Scheme
+set background=dark
+colorscheme solarized
+
+" Indentation
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
+" Filetype dependent formatting
+" Set .txt files to be of type human
+augroup filetype
+  autocmd BufNewFile,BufRead *.txt set filetype=human
+augroup END
+" Text files should automatically format to 80 characters
+autocmd FileType mail,human set formatoptions+=t
+" Use fancy indentation for C-like languages
+autocmd FileType c,cpp,cuda set cindent formatoptions+=ro
+" Use 4 space tabs for assembly and python files
+autocmd FileType s,S,python set tabstop=4 shiftwidth=4 softtabstop=4
+" Indent inside braces for perl and CSS
+autocmd FileType perl, css set smartindent
+" Kind of format HTML
+autocmd FileType html set formatoptions+=tl
+" Use literal tabs of 8 chars for Makefiles
+autocmd FileType make set noexpandtab shiftwidth=8 tabstop=8
+" Make SML-like files use SML formatting
+autocmd BufNewFile,BufRead *.sig,*.lex,*.grm setf sml
+" Auto-copy comment headers for SML
+autocmd FileType sml set formatoptions+=ro
+" GLSL filetype defines
+autocmd BufNewFile,BufRead *.frag,*.vert,*.glsl setf glsl

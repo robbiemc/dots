@@ -1,0 +1,16 @@
+[include]
+  path = .custom/gitconfig
+[core]
+  editor = "vim"
+  excludesfile = "~/.gitignore"
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+[color]
+  ui = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto

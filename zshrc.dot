@@ -1,0 +1,21 @@
+DOTS=~/.dots
+export ZSH=$DOTS/oh-my-zsh
+export ZSH_CUSTOM=$DOTS/zsh
+export ZSH_THEME="harmonic"
+export DISABLE_AUTO_UPDATE="true"
+plugins=(git solarized)
+
+source $ZSH/oh-my-zsh.sh
+
+# Solarized colors for ls
+eval "$(dircolors $DOTS/dircolors/dircolors.ansi-universal)"
+
+# Load machine-specific zsh configurations
+if [[ -d $HOME/.custom ]]; then
+  for conf in $HOME/.custom/*.zsh; do
+    source $conf
+  done
+fi
+
+export EDITOR="vim"
+export PATH="$HOME/bin:$PATH"
