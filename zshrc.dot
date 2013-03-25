@@ -8,7 +8,7 @@ plugins=(git solarized)
 source $ZSH/oh-my-zsh.sh
 
 # Solarized colors for ls
-eval "$(dircolors $DOTS/solarized/dircolors/dircolors.ansi-universal)"
+eval "$(dircolors $DOTS/solarized/dircolors/dircolors.ansi-dark)"
 
 # Load machine-specific zsh configurations
 if [[ -d $HOME/.custom(N) ]]; then
