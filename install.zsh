@@ -34,6 +34,12 @@ for file in *.dot(N); do
   ln -s ${DOTS}/${file} ~/${rc}
 done
 
+
+hash gnome-terminal >/dev/null && {
+  echo "Installing solarized theme for gnome-terminal..."
+  ${DOTS}/solarized/gnome-terminal/solarized
+}
+
 # Make vim temp directories if they don't exist
 mkdir -p ~/.local/share/vim/swap
 mkdir -p ~/.local/share/vim/undo
