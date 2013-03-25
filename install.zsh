@@ -27,7 +27,7 @@ echo "Initializing submodules..."
 echo "Linking rc files..."
 for file in *.dot(N); do
   rc=".${file%.dot}"
-  if [ -e ${rc} ]; then
+  if [ -e ~/${rc} ]; then
     echo "Backing up ${rc} as ${rc}.bak"
     mv ~/${rc} ~/${rc}.bak
   fi
@@ -38,5 +38,8 @@ done
 mkdir -p ~/.local/share/vim/swap
 mkdir -p ~/.local/share/vim/undo
 mkdir -p ~/.local/share/vim/backup
+
+echo "Creating ~/.custom directory. Create a gitconfig there"
+mkdir -p ~/.custom
 
 echo "Dot files installed! Restart your shell."
