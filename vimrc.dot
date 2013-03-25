@@ -2,6 +2,20 @@
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
+" General settings
+set hidden
+set mouse=a
+set modelines=0
+set hlsearch
+
+" Wrap long lines at break boundries
+set wrap
+set linebreak
+
+" Tab is easier to hit to jump between {}/() than %
+nnoremap <tab> %
+vnoremap <tab> %
+
 " Tab Navigation
 nmap Z :tabprev<cr>
 nmap X :tabnext<cr>
