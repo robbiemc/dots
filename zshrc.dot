@@ -8,10 +8,10 @@ plugins=(git solarized)
 source $ZSH/oh-my-zsh.sh
 
 # Solarized colors for ls
-eval "$(dircolors $DOTS/dircolors/dircolors.ansi-universal)"
+eval "$(dircolors $DOTS/solarized/dircolors/dircolors.ansi-universal)"
 
 # Load machine-specific zsh configurations
-if [[ -d $HOME/.custom ]]; then
+if [[ -d $HOME/.custom(N) ]]; then
   for conf in $HOME/.custom/*.zsh; do
     source $conf
   done

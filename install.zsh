@@ -37,7 +37,7 @@ done
 
 hash gnome-terminal >/dev/null && {
   echo "Installing solarized theme for gnome-terminal..."
-  ${DOTS}/solarized/gnome-terminal/solarized
+  ${DOTS}/solarized/gnome-terminal/solarize
 }
 
 # Make vim temp directories if they don't exist
