@@ -33,8 +33,7 @@ function prompt_char() {
     echo "%(!.${slr_fg[red]}#.${slr_fg[base1]}»)%{$reset_color%}"
 }
 
-PROMPT='
-${slr_bg[base03]}${slr_fg[yellow]}${slr_fg[base01]}$(highlighted_pwd)${slr_fg[base01]} $(git_prompt_info)%E
+PROMPT='${slr_bg[base03]}${slr_fg[yellow]}${slr_fg[base01]}$(highlighted_pwd)${slr_fg[base01]} $(git_prompt_info)%E
 %{$reset_color%}$(prompt_char) '
 
 RPROMPT='${slr_fg[base01]}%*%{$reset_color%}'
