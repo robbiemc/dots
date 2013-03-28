@@ -11,7 +11,7 @@ source $ZSH/oh-my-zsh.sh
 eval "$(dircolors $DOTS/solarized/dircolors/dircolors.ansi-dark)"
 
 # Load machine-specific zsh configurations
-if [[ -d $HOME/.custom(N) ]]; then
+if [[ -d $HOME/.custom ]]; then
   for conf in $HOME/.custom/*.zsh(N); do
     source $conf
   done
