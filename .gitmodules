@@ -1,30 +1,30 @@
 [submodule "vim.dot/bundle/acp"]
 	path = vim.dot/bundle/acp
-	url = git@github.com:vim-scripts/AutoComplPop.git
+	url = git://github.com/vim-scripts/AutoComplPop.git
 [submodule "vim.dot/bundle/git"]
 	path = vim.dot/bundle/git
-	url = git@github.com:tpope/vim-git.git
+	url = git://github.com/tpope/vim-git.git
 [submodule "vim.dot/bundle/pathogen"]
 	path = vim.dot/bundle/pathogen
-	url = git@github.com:tpope/vim-pathogen.git
+	url = git://github.com/tpope/vim-pathogen.git
 [submodule "vim.dot/bundle/snipmate"]
 	path = vim.dot/bundle/snipmate
-	url = git@github.com:msanders/snipmate.vim.git
+	url = git://github.com/msanders/snipmate.vim.git
 [submodule "vim.dot/bundle/solarized"]
 	path = vim.dot/bundle/solarized
-	url = git@github.com:altercation/vim-colors-solarized.git
+	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "vim.dot/bundle/numbers"]
 	path = vim.dot/bundle/numbers
-	url = git@github.com:myusuf3/numbers.vim.git
+	url = git://github.com/myusuf3/numbers.vim.git
 [submodule "vim.dot/bundle/sensible"]
 	path = vim.dot/bundle/sensible
-	url = git@github.com:tpope/vim-sensible.git
+	url = git://github.com/tpope/vim-sensible.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
-	url = git@github.com:robbyrussell/oh-my-zsh.git
+	url = git://github.com/robbyrussell/oh-my-zsh.git
 [submodule "solarized/dircolors"]
 	path = solarized/dircolors
-	url = git@github.com:seebi/dircolors-solarized.git
+	url = git://github.com/seebi/dircolors-solarized.git
 [submodule "solarized/gnome-terminal"]
 	path = solarized/gnome-terminal
-	url = git@github.com:sigurdga/gnome-terminal-colors-solarized.git
+	url = git://github.com/sigurdga/gnome-terminal-colors-solarized.git
