@@ -10,7 +10,7 @@ if [ -d ${DOTS} ]; then
 fi
 
 echo "Cloning dots..."
-hash git >/dev/null && /usr/bin/env git clone https://github.com/robbiemc/dots.git ${DOTS} || {
+hash git >/dev/null && /usr/bin/env git clone git://github.com/robbiemc/dots.git ${DOTS} || {
   echo "git not installed"
   exit 1
 }
