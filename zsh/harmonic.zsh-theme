@@ -38,7 +38,7 @@ PROMPT='${slr_bg[base03]}${slr_fg[yellow]}${slr_fg[base01]}$(highlighted_pwd)${s
 
 RPROMPT='${slr_fg[base01]}%*%{$reset_color%}'
 if [[ -n ${SSH_CONNECTION} ]]; then
-    RPROMPT="${slr_fg[blue]}%n@%m${slr_fg[base0]}|${RPROMPT}"
+    RPROMPT="${slr_fg[blue]}%n@%m${slr_fg[base0]} | ${RPROMPT}"
 fi
 
 ZSH_THEME_GIT_PROMPT_PREFIX="${slr_fg[base01]}[${slr_fg[blue]}"
