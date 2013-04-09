@@ -48,5 +48,6 @@ mkdir -p ~/.local/share/vim/backup
 echo "Creating ~/.custom directory. Create a gitconfig there"
 mkdir -p ~/.custom
 mkdir -p ~/.custom/vim
+ln -s ~/.custom/vim ${DOTS}/vim.dot/bundle/custom
 
 echo "Dot files installed! Restart your shell."
