@@ -4,10 +4,12 @@
   editor = "vim"
   excludesfile = "~/.gitignore"
 [alias]
-  st = status
+  st = status -sb
   ci = commit
   co = checkout
   br = branch
+  lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
 [color]
   ui = auto
   branch = auto
