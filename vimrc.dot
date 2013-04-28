@@ -29,6 +29,7 @@ colorscheme solarized
 
 " Indentation
 set expandtab
+set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
@@ -40,7 +41,7 @@ augroup END
 " Text files should automatically format to 80 characters
 autocmd FileType mail,human set formatoptions+=t
 " Use fancy indentation for C-like languages
-autocmd FileType c,cpp,cuda set cindent formatoptions+=ro
+autocmd FileType h,c,cpp,cc,cuda set cindent formatoptions+=ro colorcolumn=81
 " Use 4 space tabs for assembly and python files
 autocmd FileType s,S,python set tabstop=4 shiftwidth=4 softtabstop=4
 " Indent inside braces for perl and CSS
