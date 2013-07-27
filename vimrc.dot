@@ -20,6 +20,10 @@ vnoremap <tab> %
 nmap Z :tabprev<cr>
 nmap X :tabnext<cr>
 
+" Disable numbers.vim by default
+let g:enable_numbers=0
+set number
+
 " Custom commands
 command Trim %s/\s\+$//
 
