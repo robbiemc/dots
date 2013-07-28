@@ -37,6 +37,17 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
+" gVim settings
+if has('gui_running')
+  " Disable some UI
+  set guioptions-=Tm
+
+  " Set font in windows
+  if has('win32')
+    set guifont=Consolas:h10.5:cANSI
+  endif
+endif
+
 " Filetype dependent formatting
 " Set .txt files to be of type human
 augroup filetype
