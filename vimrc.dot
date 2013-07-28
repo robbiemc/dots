@@ -40,7 +40,8 @@ set softtabstop=2
 " gVim settings
 if has('gui_running')
   " Disable some UI
-  set guioptions-=Tm
+  set guioptions-=m " menu
+  set guioptions-=T " toolbar
 
   " Set font in windows
   if has('win32')
