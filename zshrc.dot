@@ -7,6 +7,9 @@ plugins=(git solarized)
 
 source $ZSH/oh-my-zsh.sh
 
+# Autocorrect is getting annoying
+unsetopt correct
+
 # Solarized colors for ls
 eval "$(dircolors $DOTS/solarized/dircolors/dircolors.ansi-dark)"
 
