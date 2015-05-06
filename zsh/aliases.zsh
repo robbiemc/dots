@@ -14,3 +14,12 @@ alias vim='vim -p'
 alias mcm='make clean && make'
 alias br='git branch'
 alias st='git st'
+
+function mkcdir () {
+  if [[ $# == 1 ]]; then
+    mkdir p $1
+    cd $1
+  else
+    print "Usage: mkcdir <directory>"
+  fi
+}
