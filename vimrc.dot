@@ -2,11 +2,21 @@
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
+" Set up powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
 " General settings
 set hidden
-set mouse=a
 set modelines=0
 set hlsearch
+
+" Disable the arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
 " Wrap long lines at break boundries
 set wrap
@@ -19,10 +29,6 @@ vnoremap <tab> %
 " Tab Navigation
 nmap Z :tabprev<cr>
 nmap X :tabnext<cr>
-
-" Disable numbers.vim by default
-let g:enable_numbers=0
-set number
 
 " Custom commands
 command Trim %s/\s\+$//
