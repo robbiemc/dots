@@ -89,9 +89,9 @@ check_dep () {
     # Check if we can install the dependency
     if hash apt-get &>/dev/null && hash apt-cache &>/dev/null &&
         apt-cache show $2 &>/dev/null; then
-      if read -q "REPLY?Install package $2? [y/N] "; then
+      if read -q "REPLY?Install $2? [y/N] "; then
         echo "\n"
-        if sudo apt-get install $2; then
+        if sudo apt-get --assume-yes install $2; then
           return
         fi
         echo "Failed to install package $1"
