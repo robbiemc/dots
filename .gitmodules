@@ -28,3 +28,6 @@
 [submodule "prezto"]
 	path = prezto
 	url = git://github.com/robbiemc/prezto.git
+[submodule "fonts"]
+	path = fonts
+	url = git://github.com/powerline/fonts.git
