@@ -35,12 +35,12 @@ install () {
   echo "Linking Prezto..."
   ln -s ${DOTS}/prezto ~/.zprezto
   for rcfile in ~/.zprezto/runcoms/^README.md(.N); do
-    rc=".${rcfile:t}"
-    if [ -e ~/${rc} ]; then
-      echo "Backing up ${rc} as ${rc}.bak"
-      mv ~/${rc} ~/${rc}.bak
+    rc="${rcfile:t}"
+    if [ -e ~/.${rc} ]; then
+      echo "Backing up .${rc} as .${rc}.bak"
+      mv ~/.${rc} ~/.${rc}.bak
     fi
-    ln -s "~/.zprezto/runcoms/${rc}" ~/${rc}
+    ln -s "${DOTS}/prezto/runcoms/${rc}" ~/.${rc}
   done
 
   echo "Linking dot files..."
@@ -109,7 +109,7 @@ check_pip_dep () {
     echo "incorrect use of check_pip_dep function"
     exit 2
   fi
-  if ! pip show $1 &>/dev/null; then
+  if [ -n $(pip show $1) ]; then
     echo "pip package $1 is required"
     if read -q "REPLY?Install pip package $1? [y/N] "; then
       echo "\n"
