@@ -6,7 +6,7 @@
 setopt EXTENDED_GLOB
 
 install () {
-  DOTS=~/.dots
+  local DOTS=~/.dots
   if [ -d ${DOTS} ]; then
     echo "dots is already installed. Delete your ${DOTS} directory and try again."
     exit 1
@@ -56,7 +56,7 @@ install () {
   echo "Installing powerline fonts..."
   ./fonts/install.sh
 
-  if hash gnome-terminal >/dev/null; then
+  if hash gnome-terminal &>/dev/null; then
     echo "Installing solarized theme for gnome-terminal..."
     ${DOTS}/solarized/gnome-terminal/solarize
   fi
@@ -66,10 +66,21 @@ install () {
   mkdir -p ~/.local/share/vim/undo
   mkdir -p ~/.local/share/vim/backup
 
-  echo "Creating ~/.custom directory. Create a gitconfig there"
+  echo "Creating ~/.custom directory"
   mkdir -p ~/.custom
   mkdir -p ~/.custom/vim
   ln -s ~/.custom/vim ${DOTS}/vim.dot/bundle/custom
+
+  if [ ! -d ~/.custom/gitconfig ]; then
+    echo "No custom gitconfig exists containing name and email."
+    if read -q "REPLY?Would you like to create one? [y/N] "; then
+      read "name?name: "
+      read "email?email: "
+      echo "[user]" > gitconfig2
+      echo "  name = $name" >> gitconfig2
+      echo "  email = $email" >> gitconfig2
+    fi
+  fi
 
   echo "Dot files installed! Restart your shell."
 }
