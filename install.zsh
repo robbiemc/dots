@@ -57,8 +57,16 @@ install () {
   ./fonts/install.sh
 
   if hash gnome-terminal &>/dev/null; then
+    local PROFILE=Solarized
     echo "Installing solarized theme for gnome-terminal..."
-    ${DOTS}/solarized/gnome-terminal/solarize
+    ${DOTS}/solarized/gnome-terminal/install.sh -s dark -p ${PROFILE}
+    if hash gconftool-2 &>/dev/null; then
+      local TERM_CONF="/apps/gnome-terminal/profiles/${PROFILE}"
+      gconftool-2 --set "${TERM_CONF}/custom_command" --type string "zsh"
+      gconftool-2 --set "${TERM_CONF}/default_show_menubar" --type bool false
+      gconftool-2 --set "${TERM_CONF}/use_system_font" --type bool false
+      gconftool-2 --set "${TERM_CONF}/font" --type string "Liberation Mono for Powerline 11"
+    fi
   fi
 
   echo "Creating vim temp directories..."
