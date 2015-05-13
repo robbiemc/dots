@@ -6,7 +6,7 @@
 setopt EXTENDED_GLOB
 
 install () {
-  local DOTS=~/.dots
+  local DOTS=${HOME}/.dots
   if [ -d ${DOTS} ]; then
     echo "dots is already installed. Delete your ${DOTS} directory and try again."
     exit 1
@@ -33,24 +33,24 @@ install () {
   fi
 
   echo "Linking Prezto..."
-  ln -s ${DOTS}/prezto ~/.zprezto
-  for rcfile in ~/.zprezto/runcoms/^README.md(.N); do
+  ln -s ${DOTS}/prezto ${HOME}/.zprezto
+  for rcfile in ${HOME}/.zprezto/runcoms/^README.md(.N); do
     rc="${rcfile:t}"
-    if [ -e ~/.${rc} ]; then
+    if [ -e ${HOME}/.${rc} ]; then
       echo "Backing up .${rc} as .${rc}.bak"
-      mv ~/.${rc} ~/.${rc}.bak
+      mv ${HOME}/.${rc} ${HOME}/.${rc}.bak
     fi
-    ln -s "${DOTS}/prezto/runcoms/${rc}" ~/.${rc}
+    ln -s "${DOTS}/prezto/runcoms/${rc}" ${HOME}/.${rc}
   done
 
   echo "Linking dot files..."
   for file in *.dot(N); do
     rc=".${file%.dot}"
-    if [ -e ~/${rc} ]; then
+    if [ -e ${HOME}/${rc} ]; then
       echo "Backing up ${rc} as ${rc}.bak"
-      mv ~/${rc} ~/${rc}.bak
+      mv ${HOME}/${rc} ${HOME}/${rc}.bak
     fi
-    ln -s ${DOTS}/${file} ~/${rc}
+    ln -s ${DOTS}/${file} ${HOME}/${rc}
   done
 
   echo "Installing powerline fonts..."
@@ -69,23 +69,24 @@ install () {
   fi
 
   echo "Creating vim temp directories..."
-  mkdir -p ~/.local/share/vim/swap
-  mkdir -p ~/.local/share/vim/undo
-  mkdir -p ~/.local/share/vim/backup
+  mkdir -p ${HOME}/.local/share/vim/swap
+  mkdir -p ${HOME}/.local/share/vim/undo
+  mkdir -p ${HOME}/.local/share/vim/backup
 
   echo "Creating ~/.custom directory"
-  mkdir -p ~/.custom
-  mkdir -p ~/.custom/vim
-  ln -s ~/.custom/vim ${DOTS}/vim.dot/bundle/custom
+  mkdir -p ${HOME}/.custom
+  mkdir -p ${HOME}/.custom/vim
+  ln -s ${HOME}/.custom/vim ${DOTS}/vim.dot/bundle/custom
 
-  if [ ! -d ~/.custom/gitconfig ]; then
+  if [ ! -e ${HOME}/.custom/gitconfig ]; then
     echo "No custom gitconfig exists containing name and email."
     if read -q "REPLY?Would you like to create one? [y/N] "; then
+      echo # newline
       read "name?name: "
       read "email?email: "
-      echo "[user]" > gitconfig2
-      echo "  name = $name" >> gitconfig2
-      echo "  email = $email" >> gitconfig2
+      echo "[user]" > ${HOME}/.custom/gitconfig
+      echo "  name = $name" >> ${HOME}/.custom/gitconfig
+      echo "  email = $email" >> ${HOME}/.custom/gitconfig
     fi
   fi
 
