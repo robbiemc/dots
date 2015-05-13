@@ -65,6 +65,7 @@ install () {
       gconftool-2 --set "${TERM_CONF}/default_show_menubar" --type bool false
       gconftool-2 --set "${TERM_CONF}/use_system_font" --type bool false
       gconftool-2 --set "${TERM_CONF}/font" --type string "Liberation Mono for Powerline 11"
+      gconftool-2 --set "${TERM_CONF}/scrollback_lines" --type int 2048
     fi
   fi
 
