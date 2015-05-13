@@ -11,6 +11,7 @@ python del powerline_setup
 set hidden
 set modelines=0
 set hlsearch
+set number
 
 " Disable the arrow keys
 noremap <Up> <NOP>
