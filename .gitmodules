@@ -31,3 +31,12 @@
 [submodule "fonts"]
 	path = fonts
 	url = git://github.com/powerline/fonts.git
+[submodule "vim.dot/bundle/go"]
+	path = vim.dot/bundle/go
+	url = git://github.com/fatih/vim-go.git
+[submodule "vim.dot/bundle/ragel"]
+	path = vim.dot/bundle/ragel
+	url = git://github.com/jneen/ragel.vim.git
+[submodule "vim.dot/bundle/rust"]
+	path = vim.dot/bundle/rust
+	url = git://github.com/rust-lang/rust.vim.git
