@@ -6,8 +6,7 @@
 setopt EXTENDED_GLOB
 
 # Set DOTS to a default value if it's not set
-DOTS=${DOTS-$HOME/.dots}
-cd $DOTS
+cd ${DOTS:=$HOME/.dots}
 
 echo "Linking Prezto..."
 ln -s ${DOTS}/prezto ${HOME}/.zprezto

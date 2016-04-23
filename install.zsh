@@ -5,8 +5,8 @@
 
 setopt EXTENDED_GLOB
 
+${DOTS:=$HOME/.dots}
 install () {
-  local DOTS=${HOME}/.dots
   if [ -d ${DOTS} ]; then
     echo "dots is already installed. Delete your ${DOTS} directory and try again."
     exit 1
