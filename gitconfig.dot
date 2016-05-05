@@ -8,8 +8,8 @@
   ci = commit
   co = checkout
   br = branch
-  lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lg = log --graph --decorate --abbrev-commit --pretty=format:'%Cblue%h%Creset - %Cred%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  files = !git --no-pager show --pretty="format:" --name-only
   amend = commit -a --amend --no-edit
 [color]
   ui = auto
