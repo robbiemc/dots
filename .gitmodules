@@ -25,9 +25,6 @@
 [submodule "solarized/gnome-terminal"]
 	path = solarized/gnome-terminal
 	url = git://github.com/sigurdga/gnome-terminal-colors-solarized.git
-[submodule "prezto"]
-	path = prezto
-	url = git://github.com/robbiemc/prezto.git
 [submodule "fonts"]
 	path = fonts
 	url = git://github.com/powerline/fonts.git
