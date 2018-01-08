@@ -3,9 +3,9 @@ runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 " Set up powerline
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
 
 " General settings
 set hidden

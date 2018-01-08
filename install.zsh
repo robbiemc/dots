@@ -14,9 +14,9 @@ install () {
 
   echo "Checking dependencies..."
   check_dep git git
-  check_dep vim vim
-  check_dep python python
-  check_dep pip python-pip
+  check_dep vim vim-nox
+  check_dep python3 python3
+  check_dep pip3 python3-pip
   check_pip_dep powerline-status
 
   echo "Cloning dots..."
@@ -112,11 +112,11 @@ check_pip_dep () {
     echo "incorrect use of check_pip_dep function"
     exit 2
   fi
-  if [ -n $(pip show $1) ]; then
+  if [ -n $(pip3 show $1) ]; then
     echo "pip package $1 is required"
     if read -q "REPLY?Install pip package $1? [y/N] "; then
       echo "\n"
-      if sudo pip install $1; then
+      if sudo pip3 install $1; then
         return
       fi
       echo "Failed to install pip package $1"
