@@ -37,3 +37,6 @@
 [submodule "vim.dot/bundle/rust"]
 	path = vim.dot/bundle/rust
 	url = git://github.com/rust-lang/rust.vim.git
+[submodule "prezto"]
+	path = prezto
+	url = git@github.com:robbiemc/prezto.git
