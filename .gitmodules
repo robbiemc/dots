@@ -39,4 +39,4 @@
 	url = git://github.com/rust-lang/rust.vim.git
 [submodule "prezto"]
 	path = prezto
-	url = git@github.com:robbiemc/prezto.git
+	url = git://github.com/robbiemc/prezto.git
