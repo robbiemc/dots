@@ -7,7 +7,7 @@ unalias cd/
 unalias gb
 
 # Custom aliases
-alias dus='du -sk | sorn -n'
+alias dus='du -sk | sort -n'
 alias sml='rlwrap sml'
 alias gdb='gdb -silent'
 alias vim='vim -p'
@@ -17,7 +17,7 @@ alias st='git st'
 
 function mkcdir () {
   if [[ $# == 1 ]]; then
-    mkdir p $1
+    mkdir -p $1
     cd $1
   else
     print "Usage: mkcdir <directory>"
