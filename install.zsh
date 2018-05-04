@@ -15,9 +15,6 @@ install () {
   echo "Checking dependencies..."
   check_dep git git
   check_dep vim vim-nox
-  check_dep python3 python3
-  check_dep pip3 python3-pip
-  check_pip_dep powerline-status
 
   echo "Cloning dots..."
   if ! git clone git://github.com/robbiemc/dots.git ${DOTS}; then
