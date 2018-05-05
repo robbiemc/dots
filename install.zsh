@@ -36,17 +36,7 @@ install () {
 
   if hash gnome-terminal &>/dev/null; then
     echo "Installing solarized theme for gnome-terminal..."
-    ${DOTS}/solarized/gnome-terminal/install.sh -s dark -p Default
-    if hash gconftool-2 &>/dev/null; then
-      local TERM_CONF="/apps/gnome-terminal/profiles/Default"
-      gconftool-2 --set "${TERM_CONF}/use_custom_command" --type bool true
-      gconftool-2 --set "${TERM_CONF}/custom_command" --type string "zsh"
-      gconftool-2 --set "${TERM_CONF}/default_show_menubar" --type bool false
-      gconftool-2 --set "${TERM_CONF}/use_system_font" --type bool false
-      gconftool-2 --set "${TERM_CONF}/font" --type string "Liberation Mono for Powerline 11"
-      gconftool-2 --set "${TERM_CONF}/scrollback_lines" --type int 2048
-      gconftool-2 --set "${TERM_CONF}/background_type" --type string "solid"
-    fi
+    ${DOTS}/solarized/gnome-terminal/install.sh -s dark --install-dircolors
   fi
 
   echo "Creating vim temp directories..."
@@ -96,27 +86,6 @@ check_dep () {
         fi
         echo "Failed to install package $1"
       fi
-    fi
-    echo "Exiting"
-    exit 1
-  fi
-}
-
-# Checks if the pip package $1 is installed. If not, the user will be
-# prompted to install it.
-check_pip_dep () {
-  if [ $# != 1 ]; then
-    echo "incorrect use of check_pip_dep function"
-    exit 2
-  fi
-  if [ -n $(pip3 show $1) ]; then
-    echo "pip package $1 is required"
-    if read -q "REPLY?Install pip package $1? [y/N] "; then
-      echo "\n"
-      if sudo pip3 install $1; then
-        return
-      fi
-      echo "Failed to install pip package $1"
     fi
     echo "Exiting"
     exit 1
