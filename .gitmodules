@@ -16,9 +16,6 @@
 [submodule "vim.dot/bundle/sensible"]
 	path = vim.dot/bundle/sensible
 	url = git://github.com/tpope/vim-sensible.git
-[submodule "solarized/dircolors"]
-	path = solarized/dircolors
-	url = git://github.com/seebi/dircolors-solarized.git
 [submodule "solarized/gnome-terminal"]
 	path = solarized/gnome-terminal
 	url = git://github.com/sigurdga/gnome-terminal-colors-solarized.git
