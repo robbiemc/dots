@@ -43,3 +43,9 @@
 [submodule "vim.dot/bundle/airline-themes"]
 	path = vim.dot/bundle/airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule "vim.dot/bundle/nerdtree"]
+	path = vim.dot/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim.dot/bundle/gitgutter"]
+	path = vim.dot/bundle/gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
