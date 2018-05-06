@@ -33,6 +33,15 @@ command Trim %s/\s\+$//
 set background=dark
 colorscheme solarized
 
+" Airline configuration
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
+
+" NERDTree configuration
+" autocmd vimenter * NERDTree
+
 " Indentation
 set expandtab
 set tabstop=2
