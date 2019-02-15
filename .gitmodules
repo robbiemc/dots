@@ -37,3 +37,21 @@
 [submodule "vim.dot/bundle/fugitive"]
 	path = vim.dot/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim.dot/bundle/a"]
+	path = vim.dot/bundle/a
+	url = https://github.com/vim-scripts/a.vim.git
+[submodule "vim.dot/bundle/commentary"]
+	path = vim.dot/bundle/commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim.dot/bundle/eunuch"]
+	path = vim.dot/bundle/eunuch
+	url = https://github.com/tpope/vim-eunuch.git
+[submodule "vim.dot/bundle/fzf.vim"]
+	path = vim.dot/bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "vim.dot/bundle/fzf"]
+	path = vim.dot/bundle/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "vim.dot/bundle/ycm"]
+	path = vim.dot/bundle/ycm
+	url = https://github.com/Valloric/YouCompleteMe.git
