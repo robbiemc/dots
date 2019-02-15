@@ -1,18 +1,9 @@
-[submodule "vim.dot/bundle/acp"]
-	path = vim.dot/bundle/acp
-	url = git://github.com/vim-scripts/AutoComplPop.git
-[submodule "vim.dot/bundle/git"]
-	path = vim.dot/bundle/git
-	url = git://github.com/tpope/vim-git.git
 [submodule "vim.dot/bundle/pathogen"]
 	path = vim.dot/bundle/pathogen
 	url = git://github.com/tpope/vim-pathogen.git
 [submodule "vim.dot/bundle/solarized"]
 	path = vim.dot/bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "vim.dot/bundle/numbers"]
-	path = vim.dot/bundle/numbers
-	url = git://github.com/myusuf3/numbers.vim.git
 [submodule "vim.dot/bundle/sensible"]
 	path = vim.dot/bundle/sensible
 	url = git://github.com/tpope/vim-sensible.git
@@ -31,12 +22,6 @@
 [submodule "vim.dot/bundle/rust"]
 	path = vim.dot/bundle/rust
 	url = git://github.com/rust-lang/rust.vim.git
-[submodule "prezto"]
-	path = prezto
-	url = git://github.com/robbiemc/prezto.git
-[submodule "vim.dot/bundle/ctrlp"]
-	path = vim.dot/bundle/ctrlp
-	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "vim.dot/bundle/airline"]
 	path = vim.dot/bundle/airline
 	url = https://github.com/vim-airline/vim-airline.git
