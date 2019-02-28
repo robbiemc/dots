@@ -7,6 +7,8 @@ set hidden
 set modelines=0
 set hlsearch
 set number
+set relativenumber
+set wildmode=list:longest
 
 " Disable the arrow keys
 noremap <Up> <NOP>
@@ -18,13 +20,9 @@ noremap <Right> <NOP>
 set wrap
 set linebreak
 
-" Tab is easier to hit to jump between {}/() than %
-nnoremap <tab> %
-vnoremap <tab> %
-
 " Tab Navigation
-nmap Z :tabprev<cr>
-nmap X :tabnext<cr>
+nmap Z :bp<cr>
+nmap X :bn<cr>
 
 " Custom commands
 command Trim %s/\s\+$//
@@ -40,7 +38,9 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 
 " NERDTree configuration
-" autocmd vimenter * NERDTree
+let g:NERDTreeWinSize=50
+let g:NERDTreeQuitOnOpen=1
+nmap <C-h> :NERDTreeFind<cr>
 
 " Indentation
 set expandtab
@@ -48,16 +48,9 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
-" gVim settings
-if has('gui_running')
-  " Disable some UI
-  set guioptions-=m " menu
-  set guioptions-=T " toolbar
-
-  " Set font in windows
-  if has('win32')
-    set guifont=Consolas:h10.5:cANSI
-  endif
+" Load vimrc customizations
+if filereadable(expand('~/.custom/vimrc'))
+  source ~/.custom/vimrc
 endif
 
 " Filetype dependent formatting
@@ -77,8 +70,6 @@ autocmd FileType perl, css set smartindent
 autocmd FileType html set formatoptions+=tl
 " Use literal tabs of 8 chars for Makefiles
 autocmd FileType make set noexpandtab shiftwidth=8 tabstop=8
-" Make SML-like files use SML formatting
-autocmd BufNewFile,BufRead *.sig,*.lex,*.grm setf sml
 " Auto-copy comment headers for SML
 autocmd FileType sml set formatoptions+=ro
 " GLSL filetype defines
