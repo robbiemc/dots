@@ -10,6 +10,11 @@ set number
 set relativenumber
 set wildmode=list:longest
 
+" Directories
+set directory=~/.local/share/vim/swap//
+set backupdir=~/.local/share/vim/backup//
+set undodir=~/.local/share/vim/undo//
+
 " Disable the arrow keys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
