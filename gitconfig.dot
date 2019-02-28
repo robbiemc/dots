@@ -1,5 +1,5 @@
 [include]
-  path = .custom/gitconfig
+  path = "~/.custom/gitconfig"
 [core]
   editor = "vim"
   excludesfile = "~/.gitignore"
@@ -7,8 +7,8 @@
   st = status
   ci = commit
   co = checkout
-  br = branch
-  lg = log --graph --decorate --abbrev-commit --pretty=format:'%Cblue%h%Creset - %Cred%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  br = branch -vv
+  lg = log --decorate --abbrev-commit --pretty=format:'%Cblue%h%Creset - %Cred%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
   files = !git --no-pager show --pretty="format:" --name-only
   amend = commit -a --amend --no-edit
 [color]
@@ -19,3 +19,5 @@
   status = auto
 [push]
   default = simple
+[pager]
+  branch = false
