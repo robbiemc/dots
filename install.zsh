@@ -7,52 +7,61 @@ setopt EXTENDED_GLOB
 
 ${DOTS:=$HOME/.dots}
 install () {
-  if [ -d ${DOTS} ]; then
-    echo "dots is already installed. Delete your ${DOTS} directory and try again."
+  if [[ -d ${DOTS} ]]; then
+    print "dots is already installed. Delete your ${DOTS} directory and try again."
     exit 1
   fi
 
-  echo "Checking dependencies..."
-  check_dep git git
-  check_dep vim vim-nox
+  print "Installing tools..."
+  check_bin git git
+  check_bin vim vim-nox vim
+  check_bin curl curl
+  check_bin tree tree
+  check_bin rg ripgrep
+  check_bin fzf fzf
+  check_bin fd fd rust-fd-find
+  check_bin cmake cmake
+  check_bin python2 python2
+  check_bin python3 python3
 
-  echo "Cloning dots..."
+  print "Cloning dots..."
   if ! git clone git://github.com/robbiemc/dots.git ${DOTS}; then
-    echo "Error cloning the dots repository"
+    print "Error cloning the dots repository"
     exit 1
   fi
 
-  echo "Initializing submodules..."
+  print "Initializing submodules..."
   cd ${DOTS}
   if ! git submodule update --init --recursive; then
-    echo "Failed to setup dots submodules"
+    print "Failed to setup dots submodules"
     exit 1
   fi
 
   source link.zsh
 
-  echo "Installing powerline fonts..."
+  print "Installing powerline fonts..."
   ./fonts/install.sh
 
   if hash gnome-terminal &>/dev/null; then
-    echo "Installing solarized theme for gnome-terminal..."
+    print "Installing solarized theme for gnome-terminal..."
     ${DOTS}/solarized/gnome-terminal/install.sh -s dark --install-dircolors
   fi
 
-  echo "Creating vim temp directories..."
+  print "Creating temp directories..."
   mkdir -p ${HOME}/.local/share/vim/swap
   mkdir -p ${HOME}/.local/share/vim/undo
   mkdir -p ${HOME}/.local/share/vim/backup
+  mkdir -p ${HOME}/.cache/zsh/completion
 
-  echo "Creating ~/.custom directory"
+  print "Creating ~/.custom directory"
   mkdir -p ${HOME}/.custom
   mkdir -p ${HOME}/.custom/vim
   ln -s ${HOME}/.custom/vim ${DOTS}/vim.dot/bundle/custom
 
-  if [ ! -e ${HOME}/.custom/gitconfig ]; then
-    echo "No custom gitconfig exists containing name and email."
+  if [[ ! -e ${HOME}/.custom/gitconfig ]]; then
+    print "No custom gitconfig exists containing name and email."
     if read -q "REPLY?Would you like to create one? [y/N] "; then
-      echo # newline
+      print # newline
       read "name?name: "
       read "email?email: "
       echo "[user]" > ${HOME}/.custom/gitconfig
@@ -61,35 +70,52 @@ install () {
     fi
   fi
 
-  echo "Dot files installed! Restart your shell."
+  if hash apt-get &>/dev/null; then
+    print "Installing YouCompleteMe"
+    sudo apt-get install build-essentials python3-dev
+    pushd vim.dot/bundle/ycm
+    python3 install.py --clang-completer
+    popd
+  fi
+
+  print "Dot files installed! Restart your shell."
 }
 
-
-# Checks if command $1 is defined. If not, and apt is available, and it has
-# package $2, the user will be prompted to install the package. If they
-# choose not to, or one or more of the aforementioned conditions are not
-# met, the script will exit.
-check_dep () {
-  if [ $# != 2 ]; then
-    echo "incorrect use of check_dep function"
+# Checks if command $1 is defined. If not, and apt is available, it checks
+# if any of the remaining arguments are availble in apt's repositories,
+# prompts the user to install it, and installs it. Returns 0 if $1 is
+# available.
+check_bin () {
+  if [[ $# -lt 2 ]]; then
+    print "Incorrect use of check_bin."
     exit 2
   fi
-  if ! hash $1 &>/dev/null; then
-    echo "package $1 is required"
-    # Check if we can install the dependency
-    if hash apt-get &>/dev/null && hash apt-cache &>/dev/null &&
-        apt-cache show $2 &>/dev/null; then
-      if read -q "REPLY?Install $2? [y/N] "; then
-        echo "\n"
-        if sudo apt-get --assume-yes install $2; then
-          return
-        fi
-        echo "Failed to install package $1"
-      fi
-    fi
-    echo "Exiting"
+  if hash $1 &>/dev/null; then
+    print "'$1' found"
+    return 0
+  fi
+  print "'$1' not found"
+  if ! hash apt-get &>/dev/null || ! hash apt-cache &>/dev/null; then
+    print "'apt' is required to install dependencies"
     exit 1
   fi
+  for package in "${@:2}"; do
+    if ! apt-cache show $package &>/dev/null; then
+      print "  Package '$package' not found."
+    else
+      if read -q "REPLY?  Package '$package' found. Install? [y/N] "; then
+        print
+        if sudo apt-get --assume-yes install $2; then
+          return 0
+        fi
+        print "Failed to install '$package'"
+        exit 1
+      fi
+      print
+    fi
+  done
+  print "  WARNING: '$1' not installed!"
+  return 1
 }
 
 install
