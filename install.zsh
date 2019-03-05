@@ -16,6 +16,8 @@ install () {
   check_bin git git
   check_bin vim vim-nox vim
   check_bin curl curl
+  check_bin tmux tmux
+  check_bin xclip xclip
   check_bin tree tree
   check_bin rg ripgrep
   check_bin fzf fzf

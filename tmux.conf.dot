@@ -1,0 +1,78 @@
+# Remap prefix from 'C-b' to 'C-a'
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+# Start window and pane indexing at 1
+set -g renumber-windows on
+set -g base-index 1
+setw -g pane-base-index 1
+
+# Misc options
+set -g status-keys emacs
+set -g default-terminal "screen-256color"
+set -g monitor-activity on
+setw -g automatic-rename on
+setw -g aggressive-resize on
+
+# Vim-like copy behavior
+unbind-key -T copy-mode-vi Space
+unbind-key -T copy-mode-vi Enter
+unbind-key -T copy-mode-vi C-v
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "pbcopy"
+
+# Lots of history!
+setw -g history-limit 50000
+
+# Don't delay the escape key
+set -sg escape-time 0
+
+# Split panes using \ and -
+unbind '"'
+unbind %
+bind \ split-window -h
+bind - split-window -v
+
+# Switch panes using Alt-hjkl without prefix
+bind -n M-h select-pane -L
+bind -n M-l select-pane -R
+bind -n M-k select-pane -U
+bind -n M-j select-pane -D
+
+# Switch windows with Ctrl-Alt-Z/X
+bind-key -n M-C-z previous-window
+bind-key -n M-C-x next-window
+
+# Ctrl-a + a switches to last window
+bind-key a last-window
+
+# Prefix + r to reload tmux.conf
+unbind r
+bind r source-file ~/.tmux.conf \;\
+       display 'Reloaded tmux config'
+
+# Theme
+set -g set-titles-string '[#S:#I] #W'
+set -g status-bg colour0
+set -g status-fg colour12
+
+set -g status-left-bg colour12
+set -g status-left-fg colour7
+set -g status-left-length 40
+set -g status-left '#{?client_prefix,#[bg=colour2],} #S #[bg=colour0]#{?client_prefix,#[fg=colour2],#[fg=colour12]}'
+
+set -g status-right-bg colour0
+set -g status-right-fg colour12
+set -g status-right-length 100
+set -g status-right '#[bg=colour12]#[fg=colour7] #H '
+
+set -g window-status-current-bg colour11
+set -g window-status-current-fg colour0
+set -g window-status-activity-bg colour11
+set -g window-status-activity-fg colour0
+set -g window-status-current-format ' #[fg=colour7]#I:#W#F #[bg=colour0]#[fg=colour11]'
+set -g window-status-format ' #I:#W#F '

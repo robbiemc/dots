@@ -76,7 +76,6 @@ sbg=(
 # )
 chr=(
   branch    $'\ue0a0'
-  computer  $'\U0001f4bb'
 )
 
 # Highlights the current directory in the PWD string
@@ -97,74 +96,16 @@ function prompt_harmonic_vcs {
   _prompt_harmonic_vcs=" ${vcs_info_msg_0_}"
 }
 
-# Generates a string with the username and host if SSH'd
-function prompt_harmonic_host {
-  if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
-    local user="$(whoami)"
-    local hname="$(hostname)"
-    _prompt_harmonic_host="${sfg[violet]}${user}@${hname%%.*}%f "
-  fi
-}
-
-# Gets the current time
-function prompt_harmonic_time {
-  _prompt_harmonic_time="${sfg[base0]}$(date +'%H:%M:%S')%f"
-}
-
 # Changes the color of the prompt character based on privilege
 function prompt_harmonic_prompt_char {
   _prompt_harmonic_prompt_char="%(!.${sfg[red]}#.${sfg[base1]}»)%f"
-}
-
-# Returns the length of the first parameter without formatting operations
-function prompt_harmonic_len {
-  local stripped=`echo "$1" | sed 's/%{[^}]*%}//g' | sed 's/%[fk]//g'`
-  _prompt_harmonic_len="${#stripped}"
-}
-
-# Lays out the parts of the prompt
-function prompt_harmonic_padding {
-  local width="${COLUMNS}"
-  
-  prompt_harmonic_len "${_prompt_harmonic_pwd}"
-  if [[ $((width - _prompt_harmonic_len)) -gt 0 ]]; then
-    let "width -= _prompt_harmonic_len"
-  else
-    _prompt_harmonic_pwd=""
-  fi
-  
-  prompt_harmonic_len "${_prompt_harmonic_vcs}"
-  if [[ $((width - _prompt_harmonic_len)) -gt 0 ]]; then
-    let "width -= _prompt_harmonic_len"
-  else
-    _prompt_harmonic_vcs=""
-  fi
-  
-  prompt_harmonic_len "${_prompt_harmonic_host}"
-  if [[ $((width - _prompt_harmonic_len)) -gt 0 ]]; then
-    let "width -= _prompt_harmonic_len"
-  else
-    _prompt_harmonic_host=""
-  fi
-  
-  prompt_harmonic_len "${_prompt_harmonic_time}"
-  if [[ $((width - _prompt_harmonic_len)) -gt 0 ]]; then
-    let "width -= _prompt_harmonic_len"
-  else
-    _prompt_harmonic_time=""
-  fi
-
-  _prompt_harmonic_padding="$(printf '%*s' ${width})"
 }
 
 function prompt_harmonic_precmd {
   prompt_harmonic_pwd
   vcs_info
   prompt_harmonic_vcs
-  prompt_harmonic_host
-  prompt_harmonic_time
   prompt_harmonic_prompt_char
-  prompt_harmonic_padding
 }
 
 autoload -Uz vcs_info
@@ -176,5 +117,6 @@ autoload -Uz add-zsh-hook
 add-zsh-hook precmd prompt_harmonic_precmd
 
 setopt prompt_subst
-PROMPT='${sbg[base02]}${_prompt_harmonic_pwd}${_prompt_harmonic_vcs}${_prompt_harmonic_padding}${_prompt_harmonic_host}${_prompt_harmonic_time}%E
+PROMPT='${sbg[base02]}${_prompt_harmonic_pwd}${_prompt_harmonic_vcs}%E
 %k${_prompt_harmonic_prompt_char}%f '
+RPROMPT='${sfg[base01]}%*'
