@@ -6,7 +6,7 @@
 setopt EXTENDED_GLOB
 
 # Set DOTS to a default value if it's not set
-${DOTS:=${HOME}/.dots}
+DOTS=${DOTS:-${HOME}/.dots}
 if [[ ! -d ${DOTS} ]]; then
   print "${DOTS} does not exist!"
   exit 1

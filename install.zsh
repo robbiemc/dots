@@ -5,7 +5,7 @@
 
 setopt EXTENDED_GLOB
 
-${DOTS:=$HOME/.dots}
+DOTS=${DOTS:-${HOME}/.dots}
 install () {
   if [[ -d ${DOTS} ]]; then
     print "dots is already installed. Delete your ${DOTS} directory and try again."
@@ -22,7 +22,6 @@ install () {
   check_bin rg ripgrep
   check_bin fzf fzf
   check_bin fd fd rust-fd-find
-  check_bin cmake cmake
   check_bin python2 python2
   check_bin python3 python3
 
@@ -46,7 +45,7 @@ install () {
 
   if hash gnome-terminal &>/dev/null; then
     print "Installing solarized theme for gnome-terminal..."
-    ${DOTS}/solarized/gnome-terminal/install.sh -s dark --install-dircolors
+    printf "1\nYES" | ${DOTS}/solarized/gnome-terminal/install.sh -s dark --install-dircolors
   fi
 
   print "Creating temp directories..."
@@ -74,10 +73,12 @@ install () {
 
   if hash apt-get &>/dev/null; then
     print "Installing YouCompleteMe"
-    sudo apt-get install build-essentials python3-dev
+    sudo apt-get --assume-yes install build-essential cmake python3-dev
     pushd vim.dot/bundle/ycm
     python3 install.py --clang-completer
     popd
+  else
+    print "Please manually install YouCompleteMe, in '${DOTS}/vim.dot/bundle/ycm'"
   fi
 
   print "Dot files installed! Restart your shell."

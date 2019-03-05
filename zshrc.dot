@@ -1,4 +1,4 @@
-: "${DOTS:=${HOME}/dots}"
+DOTS="${DOTS:-${HOME}/.dots}"
 
 # Profile startup
 zmodload zsh/zprof
