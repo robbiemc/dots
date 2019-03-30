@@ -3,14 +3,17 @@ unbind C-b
 set-option -g prefix C-a
 bind-key C-a send-prefix
 
+# Set TERM and key bindings
+set -g default-terminal "screen-256color"
+set -g status-keys emacs
+setw -g xterm-keys on
+
 # Start window and pane indexing at 1
 set -g renumber-windows on
 set -g base-index 1
 setw -g pane-base-index 1
 
 # Misc options
-set -g status-keys emacs
-set -g default-terminal "screen-256color"
 set -g monitor-activity on
 setw -g automatic-rename on
 setw -g aggressive-resize on

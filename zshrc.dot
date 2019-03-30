@@ -37,7 +37,9 @@ bindkey '^[[3;5~' kill-word
 bindkey '^H' backward-kill-word
 
 # Aliases
-alias ls='ls --group-directories-first --color=auto'
+if [[ "${OSTYPE}" == linux* ]]; then
+  alias ls='ls --group-directories-first --color=auto'
+fi
 alias ll='ls -l'
 alias la='ls -al'
 alias br='git branch'
@@ -46,7 +48,7 @@ alias dus='du -sk | sort -n'
 alias gdb='gdb -silent'
 alias vimf='vim $(fzf)'
 #alias vimf='vim $(fzf --preview "bat --line-range :150 --color always {}")'
-alias tmuxa='tmux new-session -A'
+alias tmuxa='tmux new-session -AD -s'
 alias tmuxl='tmux list-sessions'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
@@ -71,7 +73,11 @@ autoload -U zmv
 
 # dircolors
 if hash dircolors &>/dev/null; then
-  eval "$(dircolors --sh)"
+  if [[ -e "${HOME}/.dir_colors/dircolors" ]]; then
+    eval `dircolors "${HOME}/.dir_colors/dircolors"`
+  else
+    eval `dircolors --sh`
+  fi
   zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 fi
 

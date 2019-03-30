@@ -46,6 +46,7 @@ install () {
   if hash gnome-terminal &>/dev/null; then
     print "Installing solarized theme for gnome-terminal..."
     printf "1\nYES" | ${DOTS}/solarized/gnome-terminal/install.sh -s dark --install-dircolors
+    rm dircolors
   fi
 
   print "Creating temp directories..."

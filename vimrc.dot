@@ -21,6 +21,14 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" Fix xterm-style keys in tmux
+if &term =~ '^screen'
+  execute "set <xUp>=\e[1;*A"
+  execute "set <xDown>=\e[1;*B"
+  execute "set <xRight>=\e[1;*C"
+  execute "set <xLeft>=\e[1;*D"
+endif
+
 " Wrap long lines at break boundries
 set wrap
 set linebreak
@@ -47,6 +55,15 @@ let g:NERDTreeWinSize=50
 let g:NERDTreeQuitOnOpen=1
 nmap <C-h> :NERDTreeFind<cr>
 
+" ctrl-p
+nmap <C-p> :GitFiles<cr>
+
+" YCM
+set completeopt-=preview
+let g:ycm_show_diagnostics_ui = 1
+let g:ycm_enable_diasnostic_signs = 0
+let g:ycm_enable_diagnostic_highlighting = 0
+
 " Indentation
 set expandtab
 set tabstop=2
@@ -67,6 +84,7 @@ augroup END
 autocmd FileType mail,human set formatoptions+=t
 " Use fancy indentation for C-like languages
 autocmd FileType h,c,cpp,cc,cuda set cindent formatoptions+=ro colorcolumn=81
+autocmd FileType h,c,cpp,cc,cs,java setlocal commentstring=//\ %s
 " Use 4 space tabs for assembly and python files
 autocmd FileType s,S,python set tabstop=4 shiftwidth=4 softtabstop=4
 " Indent inside braces for perl and CSS

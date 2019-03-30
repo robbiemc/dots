@@ -93,7 +93,7 @@ function prompt_harmonic_pwd {
 
 # Copies the vcs info into a variable that can be erased if there's no space
 function prompt_harmonic_vcs {
-  _prompt_harmonic_vcs=" ${vcs_info_msg_0_}"
+  _prompt_harmonic_vcs="  ${vcs_info_msg_0_}"
 }
 
 # Changes the color of the prompt character based on privilege
