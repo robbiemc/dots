@@ -1,60 +1,80 @@
 [submodule "vim.dot/bundle/pathogen"]
 	path = vim.dot/bundle/pathogen
 	url = git://github.com/tpope/vim-pathogen.git
+	branch = master
 [submodule "vim.dot/bundle/solarized"]
 	path = vim.dot/bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+	branch = master
 [submodule "vim.dot/bundle/sensible"]
 	path = vim.dot/bundle/sensible
 	url = git://github.com/tpope/vim-sensible.git
+	branch = master
 [submodule "solarized/gnome-terminal"]
 	path = solarized/gnome-terminal
 	url = git://github.com/sigurdga/gnome-terminal-colors-solarized.git
+	branch = master
 [submodule "fonts"]
 	path = fonts
 	url = git://github.com/powerline/fonts.git
+	branch = master
 [submodule "vim.dot/bundle/go"]
 	path = vim.dot/bundle/go
 	url = git://github.com/fatih/vim-go.git
+	branch = master
 [submodule "vim.dot/bundle/ragel"]
 	path = vim.dot/bundle/ragel
 	url = git://github.com/jneen/ragel.vim.git
+	branch = master
 [submodule "vim.dot/bundle/rust"]
 	path = vim.dot/bundle/rust
 	url = git://github.com/rust-lang/rust.vim.git
+	branch = master
 [submodule "vim.dot/bundle/airline"]
 	path = vim.dot/bundle/airline
 	url = https://github.com/vim-airline/vim-airline.git
+	branch = master
 [submodule "vim.dot/bundle/airline-themes"]
 	path = vim.dot/bundle/airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
+	branch = master
 [submodule "vim.dot/bundle/nerdtree"]
 	path = vim.dot/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+	branch = master
 [submodule "vim.dot/bundle/gitgutter"]
 	path = vim.dot/bundle/gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
+	branch = master
 [submodule "vim.dot/bundle/fugitive"]
 	path = vim.dot/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+	branch = master
 [submodule "vim.dot/bundle/a"]
 	path = vim.dot/bundle/a
 	url = https://github.com/vim-scripts/a.vim.git
+	branch = master
 [submodule "vim.dot/bundle/commentary"]
 	path = vim.dot/bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
+	branch = master
 [submodule "vim.dot/bundle/eunuch"]
 	path = vim.dot/bundle/eunuch
 	url = https://github.com/tpope/vim-eunuch.git
+	branch = master
 [submodule "vim.dot/bundle/fzf.vim"]
 	path = vim.dot/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+	branch = master
 [submodule "vim.dot/bundle/fzf"]
 	path = vim.dot/bundle/fzf
 	url = https://github.com/junegunn/fzf.git
+	branch = master
 [submodule "vim.dot/bundle/ycm"]
 	path = vim.dot/bundle/ycm
 	url = https://github.com/Valloric/YouCompleteMe.git
+	branch = master
 [submodule "zsh/zsh-syntax-highlighting"]
 	path = zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+	branch = master
