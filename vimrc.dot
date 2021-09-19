@@ -70,6 +70,9 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
+" Use the zip plugin to open srcjar files
+let g:zipPlugin_ext .= ',*.srcjar'
+
 " Load vimrc customizations
 if filereadable(expand('~/.custom/vimrc'))
   source ~/.custom/vimrc
@@ -85,6 +88,10 @@ autocmd FileType mail,human set formatoptions+=t
 " Use fancy indentation for C-like languages
 autocmd FileType h,c,cpp,cc,cuda set cindent formatoptions+=ro colorcolumn=81
 autocmd FileType h,c,cpp,cc,cs,java setlocal commentstring=//\ %s
+" Use 4 space tabs and 100 character limit for java
+autocmd FileType java set tabstop=4 shiftwidth=4 softtabstop=4 formatoptions+=ro colorcolumn=101 textwidth=100
+" AIDL files are java-ish
+autocmd BufNewFile,BufRead *.aidl setf java
 " Use 4 space tabs for assembly and python files
 autocmd FileType s,S,python set tabstop=4 shiftwidth=4 softtabstop=4
 " Indent inside braces for perl and CSS
