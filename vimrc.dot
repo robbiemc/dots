@@ -70,9 +70,6 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
-" Use the zip plugin to open srcjar files
-let g:zipPlugin_ext .= ',*.srcjar'
-
 " Load vimrc customizations
 if filereadable(expand('~/.custom/vimrc'))
   source ~/.custom/vimrc
@@ -104,3 +101,5 @@ autocmd FileType make set noexpandtab shiftwidth=8 tabstop=8
 autocmd FileType sml set formatoptions+=ro
 " GLSL filetype defines
 autocmd BufNewFile,BufRead *.frag,*.vert,*.glsl setf glsl
+" .srcjar are zips
+autocmd BufNewFile,BufRead *.srcjar setf zip
