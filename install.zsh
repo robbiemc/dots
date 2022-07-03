@@ -26,7 +26,7 @@ install () {
   check_bin python3 python3
 
   print "Cloning dots..."
-  if ! git clone git://github.com/robbiemc/dots.git ${DOTS}; then
+  if ! git clone https://github.com/robbiemc/dots.git ${DOTS}; then
     print "Error cloning the dots repository"
     exit 1
   fi
