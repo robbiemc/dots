@@ -58,7 +58,7 @@ install () {
   print "Creating ~/.custom directory"
   mkdir -p ${HOME}/.custom
   mkdir -p ${HOME}/.custom/vim
-  ln -s ${HOME}/.custom/vim ${DOTS}/vim.dot/bundle/custom
+  ln -s ${HOME}/.custom/vim ${DOTS}/dot.vim/bundle/custom
 
   if [[ ! -e ${HOME}/.custom/gitconfig ]]; then
     print "No custom gitconfig exists containing name and email."
@@ -75,11 +75,11 @@ install () {
   if hash apt-get &>/dev/null; then
     print "Installing YouCompleteMe"
     sudo apt-get --assume-yes install build-essential cmake python3-dev
-    pushd vim.dot/bundle/ycm
+    pushd dot.vim/bundle/ycm
     python3 install.py --clang-completer
     popd
   else
-    print "Please manually install YouCompleteMe, in '${DOTS}/vim.dot/bundle/ycm'"
+    print "Please manually install YouCompleteMe, in '${DOTS}/dot.vim/bundle/ycm'"
   fi
 
   print "Dot files installed! Restart your shell."
