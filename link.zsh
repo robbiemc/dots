@@ -14,8 +14,8 @@ fi
 cd ${DOTS}
 
 print "Linking dot files..."
-for file in *.dot(N); do
-  rc=".${file%.dot}"
+for file in dot.*(N); do
+  rc="${file#dot}"
   if [[ -e ${HOME}/${rc} ]]; then
     print "Backing up ${rc} as ${rc}.bak"
     mv ${HOME}/${rc} ${HOME}/${rc}.bak
