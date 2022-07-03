@@ -19,5 +19,7 @@
   status = auto
 [push]
   default = simple
+[pull]
+  rebase = true
 [pager]
   branch = false
