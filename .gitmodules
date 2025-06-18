@@ -70,10 +70,6 @@
 	path = dot.vim/bundle/fzf
 	url = https://github.com/junegunn/fzf.git
 	branch = master
-[submodule "vim.dot/bundle/ycm"]
-	path = dot.vim/bundle/ycm
-	url = https://github.com/Valloric/YouCompleteMe.git
-	branch = master
 [submodule "zsh/zsh-syntax-highlighting"]
 	path = zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
