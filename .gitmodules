@@ -74,3 +74,6 @@
 	path = zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 	branch = master
+[submodule "dot.vim/bundle/ycm"]
+	path = dot.vim/bundle/ycm
+	url = https://github.com/ycm-core/YouCompleteMe.git
