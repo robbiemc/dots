@@ -45,7 +45,7 @@
 [submodule "vim.dot/bundle/gitgutter"]
 	path = dot.vim/bundle/gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
-	branch = master
+	branch = main
 [submodule "vim.dot/bundle/fugitive"]
 	path = dot.vim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -74,6 +74,3 @@
 	path = zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 	branch = master
-[submodule "dot.vim/bundle/ycm"]
-	path = dot.vim/bundle/ycm
-	url = https://github.com/ycm-core/YouCompleteMe.git
