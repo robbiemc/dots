@@ -22,7 +22,6 @@ install () {
   check_bin rg ripgrep
   check_bin fzf fzf
   check_bin fd fd rust-fd-find
-  check_bin python2 python2
   check_bin python3 python3
 
   print "Cloning dots..."
@@ -70,16 +69,6 @@ install () {
       echo "  name = $name" >> ${HOME}/.custom/gitconfig
       echo "  email = $email" >> ${HOME}/.custom/gitconfig
     fi
-  fi
-
-  if hash apt-get &>/dev/null; then
-    print "Installing YouCompleteMe"
-    sudo apt-get --assume-yes install build-essential cmake python3-dev
-    pushd dot.vim/bundle/ycm
-    python3 install.py --clang-completer
-    popd
-  else
-    print "Please manually install YouCompleteMe, in '${DOTS}/dot.vim/bundle/ycm'"
   fi
 
   print "Dot files installed! Restart your shell."
